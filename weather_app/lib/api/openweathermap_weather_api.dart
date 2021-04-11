@@ -11,7 +11,7 @@ class OpenWeatherMapWeatherApi extends WeatherApi {
 
   // TODO needs to move this to a separate file and add to gitignore
   static const endPointUrl = 'https://api.openweathermap.org/data/2.5';
-  static const apiKey = "YOUR APPID";
+  static const apiKey = "63616431d3d1f75661aacbb3bc97ef47";
 
   http.Client httpClient;
 
