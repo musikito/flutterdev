@@ -30,12 +30,8 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List <Icon> scoreKeeper = [];
- // List<Question> questionList = [
- //   Question('you can lead', false),
- //   Question('bone in feet', true),
- //   Question('slug blood green', true),
- // ];
-  int questionNumber = 0;
+
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -48,7 +44,8 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.questionList[questionNumber].questionText ?? '',
+                quizBrain.getQuestionText(),
+               // quizBrain.questionList[questionNumber].questionText ?? '',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -73,14 +70,14 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                bool correctAnswer = quizBrain.questionList[questionNumber].questionAnswer;
+                bool correctAnswer = quizBrain.getCorrectAnswer();
                 if (correctAnswer == true) {
                   print('user got it right');
                 }else{
                   print('user go it wrong');
                 }
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
 
               },
@@ -101,14 +98,14 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
-                bool correctAnswer = quizBrain.questionList[questionNumber].questionAnswer;
+                bool correctAnswer = quizBrain.getCorrectAnswer();
                 if (correctAnswer == false) {
                   print('user got it right');
                 }else{
                   print('user go it wrong');
                 }
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
