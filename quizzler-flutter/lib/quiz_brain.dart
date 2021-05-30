@@ -40,4 +40,17 @@ class QuizBrain {
   bool getCorrectAnswer(){
     return _questionList[_questionNumber].questionAnswer;
   } //getCorrectAnswer
+
+ bool isFinished(){
+    if(_questionNumber >= _questionList.length - 1){
+      print('se acabo');
+      return true;
+    } else{
+      print('todavia');
+      return false;
+    }
+ } //isFinished
+ void resetCounter(){
+    _questionNumber = 0;
+ }
 }
